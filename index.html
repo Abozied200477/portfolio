@@ -96,18 +96,15 @@
         .portfolio-item {
             width: 45%;
             margin: 10px 0;
-            text-align: center;
             position: relative;
             overflow: hidden;
             border-radius: 10px;
-            cursor: pointer;
         }
 
         .portfolio-item img {
             width: 100%;
             height: auto;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease-in-out;
         }
 
@@ -181,7 +178,7 @@
     <header>
         <h1>Moaz Zied - مصمم جرافيك</h1>
         <img src="Logo.jpg" alt="Moaz Zied">
-        <p>مصمم جرافيك متخصص في تصميم الهويات البصرية، تصميمات الليزر، وتصميمات السوشيال ميديا. أسعى لتحويل الأفكار إلى واقع بصري فريد. أجيد العمل على برامج التصميم (Photoshop, Illustrator, Corel Draw).</p>
+        <p>مصمم جرافيك متخصص في تصميم الهويات البصرية، تصميمات الليزر، وتصميمات السوشيال ميديا. أسعى لتحويل الأفكار إلى واقع بصري فريد.</p>
     </header>
 
     <h2>أعمالي السابقة</h2>
@@ -197,11 +194,11 @@
         <h3>تصميمات ليزر</h3>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="صورة واتساب بتاريخ 2024-12-05 في 14.36.10_935fa0d9.jpg" alt="تصميم ليزر 1">
+                <img src="laser1.jpg" alt="تصميم ليزر 1">
                 <div class="caption">تصميم ليزر 1</div>
             </div>
             <div class="portfolio-item">
-                <img src="WhatsApp Image 2024-12-01 at 2.45.03 PM (1).jpeg" alt="تصميم ليزر 2">
+                <img src="laser2.jpg" alt="تصميم ليزر 2">
                 <div class="caption">تصميم ليزر 2</div>
             </div>
         </div>
@@ -211,16 +208,12 @@
         <h3>تصميمات سوشيال</h3>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="صورة واتساب بتاريخ 2024-12-05 في 14.38.14_53726243.jpg" alt="تصميم سوشيال 1">
+                <img src="social1.jpg" alt="تصميم سوشيال 1">
                 <div class="caption">تصميم سوشيال 1</div>
             </div>
             <div class="portfolio-item">
-                <img src="صورة واتساب بتاريخ 2024-12-05 في 14.38.46_8060a29f.jpg" alt="تصميم سوشيال 2">
+                <img src="social2.jpg" alt="تصميم سوشيال 2">
                 <div class="caption">تصميم سوشيال 2</div>
-            </div>
-            <div class="portfolio-item">
-                <img src="449413139_122096434766387186_4800123910844113025_n.jpg" alt="تصميم سوشيال 3">
-                <div class="caption">تصميم سوشيال 3</div>
             </div>
         </div>
     </section>
@@ -228,9 +221,9 @@
     <footer>
         <div class="contact-info">
             <a href="https://wa.me/201025187974" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
             </a>
-            <a href="https://www.linkedin.com/in/moaz-zied-b31110338" target="_blank">
+            <a href="https://www.linkedin.com/in/moaz-zied" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
             </a>
         </div>
@@ -241,7 +234,9 @@
             const sections = document.querySelectorAll("section");
             sections.forEach(section => {
                 section.classList.remove("active");
-                if (section.id === sectionId) section.classList.add("active");
+                if (section.id === sectionId) {
+                    section.classList.add("active");
+                }
             });
         }
     </script>
