@@ -16,7 +16,6 @@
             background-color: black;
             text-align: center;
             padding: 15px;
-            animation: fadeIn 1s ease-in-out;
         }
 
         header h1 {
@@ -29,12 +28,6 @@
             height: 120px;
             border-radius: 50%;
             margin-top: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s;
-        }
-
-        header img:hover {
-            transform: scale(1.1);
         }
 
         header p {
@@ -46,7 +39,6 @@
             text-align: center;
             margin: 25px 0 10px;
             font-size: 1.8em;
-            animation: slideIn 1s ease-in-out;
         }
 
         nav {
@@ -66,7 +58,6 @@
             align-items: center;
             cursor: pointer;
             transition: transform 0.3s, background 0.3s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         nav .icon:hover {
@@ -100,7 +91,6 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            animation: fadeIn 1s ease-in-out;
         }
 
         .portfolio-item {
@@ -118,12 +108,11 @@
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out;
         }
 
         .portfolio-item:hover img {
             transform: scale(1.1);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
         }
 
         .portfolio-item .caption {
@@ -147,7 +136,6 @@
             background-color: black;
             text-align: center;
             padding: 20px 0;
-            animation: fadeIn 1s ease-in-out;
         }
 
         .contact-info {
@@ -161,18 +149,16 @@
         .contact-info a {
             text-decoration: none;
             color: white;
-            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out;
         }
 
         .contact-info img {
             width: 32px;
             height: 32px;
-            transition: transform 0.3s;
         }
 
         .contact-info a:hover {
             transform: scale(1.2);
-            opacity: 0.8;
         }
 
         @media (max-width: 768px) {
@@ -187,26 +173,6 @@
 
             nav .icon p {
                 font-size: 0.9em;
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(-20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
             }
         }
     </style>
