@@ -4,67 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moaz Zied - مصمم جرافيك</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <style>
+        /* الهيكل العام */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: linear-gradient(45deg, #000, #FFD700);
             color: white;
+            overflow-x: hidden;
         }
 
-        /* Animation for page load */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-100px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        /* Global transitions */
-        header, nav, section, footer {
-            animation: fadeIn 1s ease-out;
+        header, nav, footer {
+            text-align: center;
+            padding: 20px;
         }
 
         header {
-            animation: fadeIn 1s ease-out;
             background-color: black;
-            text-align: center;
-            padding: 15px;
         }
 
         header h1 {
-            margin: 0;
-            font-size: 2em;
-            animation: slideIn 1.2s ease-out;
+            font-size: 2.5em;
         }
 
         header img {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            margin-top: 15px;
+            margin: 15px 0;
         }
 
         header p {
-            font-size: 1.1em;
+            font-size: 1.2em;
             margin-top: 10px;
-        }
-
-        h2 {
-            text-align: center;
-            margin: 25px 0 10px;
-            font-size: 1.8em;
-            animation: slideIn 1.2s ease-in;
         }
 
         nav {
             display: flex;
             justify-content: center;
-            margin: 20px 0;
             gap: 15px;
+            margin: 30px 0;
         }
 
         nav .icon {
@@ -77,67 +57,63 @@
             align-items: center;
             cursor: pointer;
             transition: transform 0.3s, background 0.3s;
-            animation: fadeIn 1s ease-in-out;
         }
 
         nav .icon:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(5deg);
             background: rgba(255, 255, 255, 0.5);
         }
 
         nav .icon p {
-            margin: 0;
             font-size: 1.1em;
         }
 
         section {
-            padding: 20px;
+            padding: 30px 20px;
             display: none;
-            animation: fadeIn 1.2s ease-out;
+        }
+
+        section.active {
+            display: block;
         }
 
         section h3 {
-            margin-bottom: 20px;
             text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 20px;
         }
 
         .portfolio-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
+            gap: 15px;
         }
 
         .portfolio-item {
             width: 45%;
-            margin: 10px 0;
-            text-align: center;
             position: relative;
             overflow: hidden;
             border-radius: 10px;
-            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
         }
 
         .portfolio-item img {
             width: 100%;
             height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s;
         }
 
-        /* Hover effect on images */
         .portfolio-item:hover img {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.1) rotate(3deg);
         }
 
         footer {
             background-color: black;
-            text-align: center;
-            padding: 20px 0;
-            animation: fadeIn 1.5s ease-out;
         }
 
-        .contact-info {
+        footer .contact-info {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -145,120 +121,77 @@
             font-size: 1.2em;
         }
 
-        .contact-info a {
+        footer .contact-info a {
             text-decoration: none;
             color: white;
-            transition: transform 0.3s ease-in-out;
         }
 
-        .contact-info img {
+        footer .contact-info img {
             width: 32px;
             height: 32px;
         }
 
-        .contact-info a:hover {
-            transform: scale(1.2) rotate(-5deg);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            nav .icon {
-                width: 100px;
-                height: 100px;
-            }
-
-            .portfolio-item {
-                width: 100%;
-            }
+        /* تأثير التمرير */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: gold;
+            z-index: 1000;
         }
     </style>
 </head>
 <body>
-    <header>
+    <div class="progress-bar" id="progress-bar"></div>
+    <header data-aos="fade-down">
         <h1>Moaz Zied - مصمم جرافيك</h1>
         <img src="Logo.jpg" alt="Moaz Zied">
         <p>مصمم جرافيك متخصص في تصميم الهويات البصرية، تصميمات الليزر، وتصميمات السوشيال ميديا. أسعى لتحويل الأفكار إلى واقع بصري فريد. أجيد العمل على برامج التصميم (Photoshop, Illustrator, Corel Draw).</p>
     </header>
 
-    <h2>أعمالي السابقة</h2>
-
-    <nav>
+    <nav data-aos="zoom-in">
         <div class="icon" onclick="toggleSection('laser')"><p>تصميمات ليزر</p></div>
         <div class="icon" onclick="toggleSection('social')"><p>تصميمات سوشيال</p></div>
         <div class="icon" onclick="toggleSection('logos')"><p>تصميم شعارات</p></div>
         <div class="icon" onclick="toggleSection('print')"><p>طباعة ودعاية</p></div>
     </nav>
 
-    <!-- Laser Section -->
-    <section id="laser">
+    <section id="laser" class="active" data-aos="fade-up">
         <h3>تصميمات ليزر</h3>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="صورة واتساب بتاريخ 2024-12-05 في 14.36.10_935fa0d9.jpg" alt="تصميم ليزر 1">
+                <img src="img1.jpg" alt="تصميم ليزر 1">
             </div>
             <div class="portfolio-item">
-                <img src="WhatsApp Image 2024-12-01 at 2.45.03 PM (1).jpeg" alt="تصميم ليزر 2">
+                <img src="img2.jpg" alt="تصميم ليزر 2">
             </div>
         </div>
     </section>
 
-    <!-- Social Section -->
-    <section id="social">
+    <section id="social" data-aos="fade-up">
         <h3>تصميمات سوشيال</h3>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="صورة واتساب بتاريخ 2024-12-05 في 14.38.14_53726243.jpg" alt="تصميم سوشيال 1">
-            </div>
-            <div class="portfolio-item">
-                <img src="صورة واتساب بتاريخ 2024-12-05 في 14.38.46_8060a29f.jpg" alt="تصميم سوشيال 2">
-            </div>
-            <div class="portfolio-item">
-                <img src="449413139_122096434766387186_4800123910844113025_n.jpg" alt="تصميم سوشيال 3">
+                <img src="img3.jpg" alt="تصميم سوشيال 1">
             </div>
         </div>
     </section>
 
-    <!-- Logo Section -->
-    <section id="logos">
+    <section id="logos" data-aos="fade-up">
         <h3>تصميم شعارات</h3>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="صورة واتساب بتاريخ 2024-12-05 في 14.39.43_becd8816.jpg" alt="شعار 1">
-            </div>
-            <div class="portfolio-item">
-                <img src="Logo.jpg" alt="شعار 2">
-            </div>
-            <div class="portfolio-item">
-                <img src="لوجو مؤمن-02.jpg" alt="شعار 3">
-            </div>
-            <div class="portfolio-item">
-                <img src="صورة واتساب بتاريخ 2024-09-27 في 20.12.05_8443ef93.jpg" alt="شعار 4">
+                <img src="img4.jpg" alt="شعار 1">
             </div>
         </div>
     </section>
 
-    <!-- Print Section -->
-    <section id="print">
-        <h3>طباعة ودعاية</h3>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="8511478_3941990.jpg" alt="تصميم طباعة 1">
-            </div>
-            <div class="portfolio-item">
-                <img src="مطويه-01.jpg" alt="تصميم طباعة 2">
-            </div>
-        </div>
-    </section>
-
-    <footer>
+    <footer data-aos="fade-in">
         <div class="contact-info">
             <a href="https://wa.me/201025187974" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
             </a>
             <a href="https://www.linkedin.com/in/moaz-zied-b31110338" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
@@ -266,13 +199,24 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+        AOS.init();
+
         function toggleSection(sectionId) {
-            const sections = document.querySelectorAll("section");
-            sections.forEach(section => {
-                section.style.display = section.id === sectionId ? "block" : "none";
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
             });
+            document.getElementById(sectionId).classList.add('active');
         }
+
+        window.addEventListener('scroll', () => {
+            const progressBar = document.getElementById('progress-bar');
+            const scrollTop = window.scrollY;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        });
     </script>
 </body>
 </html>
