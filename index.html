@@ -5,13 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moaz Zied - مصمم جرافيك</title>
     <style>
-        /* نفس التنسيقات */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #000, #FFD700);
+            color: white;
+        }
+
+        header {
+            background-color: black;
+            text-align: center;
+            padding: 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-top: 15px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 25px 0 10px;
+            font-size: 1.8em;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        nav .icon {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 0 10px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        nav .icon:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        nav .icon p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        section {
+            padding: 20px;
+            display: none;
+        }
+
+        section h3 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .portfolio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .portfolio-item {
+            width: 45%;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: black;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.2em;
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .contact-info img {
+            width: 32px;
+            height: 32px;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Moaz Zied - مصمم جرافيك</h1>
-        <img src="portfolio/Logo.jpg" alt="Moaz Zied">
+        <img src="Logo.jpg" alt="Moaz Zied">
         <p>مصمم جرافيك متخصص في تصميم الهويات البصرية، تصميمات الليزر، وتصميمات السوشيال ميديا. أسعى لتحويل الأفكار إلى واقع بصري فريد. أجيد العمل على برامج التصميم (Photoshop, Illustrator, Corel Draw).</p>
     </header>
 
@@ -28,10 +144,10 @@
         <h3>تصميمات ليزر</h3>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="portfolio/Laser1.jpg" alt="ليزر 1">
+                <img src="Laser1.jpg" alt="ليزر 1">
             </div>
             <div class="portfolio-item">
-                <img src="portfolio/Laser2.jpg" alt="ليزر 2">
+                <img src="Laser2.jpg" alt="ليزر 2">
             </div>
         </div>
     </section>
@@ -40,13 +156,13 @@
         <h3>تصميمات سوشيال</h3>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="portfolio/Social1.jpg" alt="سوشيال 1">
+                <img src="Social1.jpg" alt="سوشيال 1">
             </div>
             <div class="portfolio-item">
-                <img src="portfolio/Social2.jpg" alt="سوشيال 2">
+                <img src="Social2.jpg" alt="سوشيال 2">
             </div>
             <div class="portfolio-item">
-                <img src="portfolio/Social3.jpg" alt="سوشيال 3">
+                <img src="Social3.jpg" alt="سوشيال 3">
             </div>
         </div>
     </section>
@@ -55,10 +171,10 @@
         <h3>تصميم شعارات</h3>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="portfolio/Logo1.jpg" alt="شعار 1">
+                <img src="Logo1.jpg" alt="شعار 1">
             </div>
             <div class="portfolio-item">
-                <img src="portfolio/Logo2.jpg" alt="شعار 2">
+                <img src="Logo2.jpg" alt="شعار 2">
             </div>
         </div>
     </section>
@@ -67,10 +183,10 @@
         <h3>طباعة ودعاية</h3>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="portfolio/Print1.jpg" alt="طباعة 1">
+                <img src="Print1.jpg" alt="طباعة 1">
             </div>
             <div class="portfolio-item">
-                <img src="portfolio/مطويه-01.jpg" alt="طباعة 2">
+                <img src="مطويه-01.jpg" alt="طباعة 2">
             </div>
         </div>
     </section>
