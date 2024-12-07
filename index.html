@@ -73,12 +73,6 @@
         section {
             padding: 20px;
             display: none;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        section.active {
-            display: block;
-            opacity: 1;
         }
 
         section h3 {
@@ -98,7 +92,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            cursor: pointer;
+            border-radius: 10px;
         }
 
         .portfolio-item img {
@@ -106,27 +100,30 @@
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease;
         }
 
         .portfolio-item:hover img {
             transform: scale(1.1);
         }
 
-        .portfolio-item .caption {
+        .portfolio-item .overlay {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
             color: white;
-            text-align: center;
-            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             opacity: 0;
-            transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.3s ease;
+            font-size: 1.2em;
         }
 
-        .portfolio-item:hover .caption {
+        .portfolio-item:hover .overlay {
             opacity: 1;
         }
 
@@ -147,31 +144,11 @@
         .contact-info a {
             text-decoration: none;
             color: white;
-            transition: transform 0.3s ease-in-out;
         }
 
         .contact-info img {
             width: 32px;
             height: 32px;
-        }
-
-        .contact-info a:hover {
-            transform: scale(1.2);
-        }
-
-        @media (max-width: 768px) {
-            .portfolio-item {
-                width: 100%;
-            }
-
-            nav .icon {
-                width: 80px;
-                height: 80px;
-            }
-
-            nav .icon p {
-                font-size: 0.9em;
-            }
         }
     </style>
 </head>
@@ -195,12 +172,12 @@
         <h3>تصميمات ليزر</h3>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="image1.jpg" alt="تصميم ليزر 1">
-                <div class="caption">تصميم ليزر 1</div>
+                <img src="صورة1.jpg" alt="تصميم ليزر 1">
+                <div class="overlay">تصميم ليزر 1</div>
             </div>
             <div class="portfolio-item">
-                <img src="image2.jpg" alt="تصميم ليزر 2">
-                <div class="caption">تصميم ليزر 2</div>
+                <img src="صورة2.jpg" alt="تصميم ليزر 2">
+                <div class="overlay">تصميم ليزر 2</div>
             </div>
         </div>
     </section>
@@ -209,8 +186,12 @@
         <h3>تصميمات سوشيال</h3>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="image3.jpg" alt="تصميم سوشيال 1">
-                <div class="caption">تصميم سوشيال 1</div>
+                <img src="صورة3.jpg" alt="تصميم سوشيال 1">
+                <div class="overlay">تصميم سوشيال 1</div>
+            </div>
+            <div class="portfolio-item">
+                <img src="صورة4.jpg" alt="تصميم سوشيال 2">
+                <div class="overlay">تصميم سوشيال 2</div>
             </div>
         </div>
     </section>
@@ -230,8 +211,7 @@
         function toggleSection(sectionId) {
             const sections = document.querySelectorAll("section");
             sections.forEach(section => {
-                section.classList.remove('active');
-                if (section.id === sectionId) section.classList.add('active');
+                section.style.display = section.id === sectionId ? "block" : "none";
             });
         }
     </script>
