@@ -3,190 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Moaz Zied - مصمم جرافيك</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #000, #FFD700);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        header, nav, footer {
+            text-align: center;
+            padding: 20px;
         }
 
         header {
-            background-color: #333;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
+            background-color: black;
         }
 
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
+        header h1 {
+            font-size: 2.5em;
         }
 
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
+        header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 15px 0;
         }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        nav .icon {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        nav .icon:hover {
+            transform: scale(1.1) rotate(5deg);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        nav .icon p {
+            font-size: 1.1em;
         }
 
         section {
-            padding: 2rem;
-            margin: 1rem 0;
+            padding: 30px 20px;
+            display: none;
         }
 
-        #about, #services, #portfolio, #contact, #testimonials {
-            background-color: white;
+        section.active {
+            display: block;
+        }
+
+        section h3 {
+            text-align: center;
+            font-size: 1.8em;
             margin-bottom: 20px;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .testimonial-form textarea {
+        .portfolio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 15px;
+        }
+
+        .portfolio-item {
+            width: 45%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item img {
             width: 100%;
-            height: 100px;
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            height: auto;
+            transition: transform 0.3s;
         }
 
-        .testimonial-form input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .testimonial-form button {
-            background-color: #333;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .testimonial-form button:hover {
-            background-color: #555;
-        }
-
-        .reviews {
-            margin-top: 20px;
-        }
-
-        .review {
-            background-color: #eee;
-            margin-bottom: 10px;
-            padding: 10px;
-            border-radius: 4px;
+        .portfolio-item:hover img {
+            transform: scale(1.1) rotate(3deg);
         }
 
         footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem;
+            background-color: black;
         }
 
-        .gallery img {
-            width: 30%;
-            margin: 10px;
-            border-radius: 8px;
+        footer .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.2em;
         }
 
-        .contact a {
-            color: #333;
+        footer .contact-info a {
             text-decoration: none;
-            font-weight: bold;
+            color: white;
+        }
+
+        footer .contact-info img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: gold;
+            z-index: 1000;
         }
     </style>
 </head>
 <body>
-
-    <!-- Header Section -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">من أنا</a></li>
-                <li><a href="#services">الخدمات</a></li>
-                <li><a href="#portfolio">المشاريع</a></li>
-                <li><a href="#contact">التواصل</a></li>
-                <li><a href="#testimonials">آراء العملاء</a></li>
-            </ul>
-        </nav>
+    <div class="progress-bar" id="progress-bar"></div>
+    <header data-aos="fade-down">
+        <h1>Moaz Zied - مصمم جرافيك</h1>
+        <img src="Logo.jpg" alt="Moaz Zied">
+        <p>مصمم جرافيك متخصص في تصميم الهويات البصرية، تصميمات الليزر، وتصميمات السوشيال ميديا. أسعى لتحويل الأفكار إلى واقع بصري فريد. أجيد العمل على برامج التصميم (Photoshop, Illustrator, Corel Draw).</p>
     </header>
 
-    <!-- About Section -->
-    <section id="about">
-        <h1>من أنا</h1>
-        <p>أهلاً بك في موقعي! أنا معاذ زيد، مصمم جرافيك متخصص في تصميم الهوية البصرية.</p>
-    </section>
+    <nav data-aos="zoom-in">
+        <div class="icon" onclick="toggleSection('laser')"><p>تصميمات ليزر</p></div>
+        <div class="icon" onclick="toggleSection('social')"><p>تصميمات سوشيال</p></div>
+        <div class="icon" onclick="toggleSection('logos')"><p>تصميم شعارات</p></div>
+        <div class="icon" onclick="toggleSection('print')"><p>طباعة ودعاية</p></div>
+    </nav>
 
-    <!-- Services Section -->
-    <section id="services">
-        <h1>الخدمات</h1>
-        <ul>
-            <li>تصميم الشعارات</li>
-            <li>تصميم هويات بصرية</li>
-            <li>تصميمات للويب والطباعة</li>
-        </ul>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-        <h1>المشاريع</h1>
-        <div class="gallery">
-            <img src="project1.jpg" alt="مشروع 1">
-            <img src="project2.jpg" alt="مشروع 2">
-            <img src="project3.jpg" alt="مشروع 3">
-        </div>
-    </section>
-
-    <!-- Customer Reviews Section -->
-    <section id="testimonials">
-        <h1>آراء العملاء</h1>
-        <div class="testimonial-form">
-            <h2>هل تود ترك رأيك؟</h2>
-            <form action="" method="POST">
-                <textarea name="testimonial" placeholder="اكتب رأيك هنا..." required></textarea>
-                <input type="number" name="rating" min="1" max="5" placeholder="قيمني من 1 إلى 5" required>
-                <button type="submit">إرسال</button>
-            </form>
-        </div>
-
-        <div class="reviews">
-            <div class="review">
-                <p>"عمل رائع جداً، أنصح بالتعامل معه!" - عميل سعيد</p>
+    <section id="laser" class="active" data-aos="fade-up">
+        <h3>تصميمات ليزر</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="صورة واتساب بتاريخ 2024-12-05 في 14.36.10_935fa0d9.jpg" alt="تصميم ليزر 1">
             </div>
-            <div class="review">
-                <p>"خدمة مميزة واحترافية." - عميل آخر</p>
+            <div class="portfolio-item">
+                <img src="WhatsApp Image 2024-12-01 at 2.45.03 PM (1).jpeg" alt="تصميم ليزر 2">
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h1>التواصل</h1>
-        <p>يمكنك التواصل معي عبر:</p>
-        <a href="https://wa.me/1234567890" target="_blank">واتساب</a> |
-        <a href="https://www.linkedin.com/in/moazzied" target="_blank">لينكدإن</a>
+    <section id="social" data-aos="fade-up">
+        <h3>تصميمات سوشيال</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="صورة واتساب بتاريخ 2024-12-05 في 14.38.14_53726243.jpg" alt="تصميم سوشيال 1">
+            </div>
+            <div class="portfolio-item">
+                <img src="صورة واتساب بتاريخ 2024-12-05 في 14.38.46_8060a29f.jpg" alt="تصميم سوشيال 2">
+            </div>
+            <div class="portfolio-item">
+                <img src="449413139_122096434766387186_4800123910844113025_n.jpg" alt="تصميم سوشيال 3">
+            </div>
+        </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2024 معاذ زيد. جميع الحقوق محفوظة.</p>
+    <section id="logos" data-aos="fade-up">
+        <h3>تصميم شعارات</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="صورة واتساب بتاريخ 2024-12-05 في 14.39.43_becd8816.jpg" alt="شعار 1">
+            </div>
+            <div class="portfolio-item">
+                <img src="Logo.jpg" alt="شعار 2">
+            </div>
+            <div class="portfolio-item">
+                <img src="لوجو مؤمن-02.jpg" alt="شعار 3">
+            </div>
+            <div class="portfolio-item">
+                <img src="صورة واتساب بتاريخ 2024-09-27 في 20.12.05_8443ef93.jpg" alt="شعار 4">
+            </div>
+        </div>
+    </section>
+
+    <section id="print" data-aos="fade-up">
+        <h3>طباعة ودعاية</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="8511478_3941990.jpg" alt="تصميم طباعة 1">
+            </div>
+            <div class="portfolio-item">
+                <img src="مطويه-01.jpg" alt="تصميم طباعة 2">
+            </div>
+        </div>
+    </section>
+
+    <footer data-aos="fade-in">
+        <div class="contact-info">
+            <a href="https://wa.me/201025187974" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp">
+            </a>
+            <a href="https://www.linkedin.com/in/moaz-zied-b31110338" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+            </a>
+        </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+
+        function toggleSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        window.addEventListener('scroll', () => {
+            const progressBar = document.getElementById('progress-bar');
+            const scrollTop = window.scrollY;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        });
+    </script>
 </body>
 </html>
