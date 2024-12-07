@@ -10,14 +10,12 @@
             font-family: Arial, sans-serif;
             background: linear-gradient(45deg, #000, #FFD700);
             color: white;
-            overflow-x: hidden;
         }
 
         header {
             background-color: black;
             text-align: center;
             padding: 15px;
-            animation: fadeInDown 1s;
         }
 
         header h1 {
@@ -30,32 +28,23 @@
             height: 120px;
             border-radius: 50%;
             margin-top: 15px;
-            animation: bounceIn 1.5s;
         }
 
         header p {
             font-size: 1.1em;
             margin-top: 10px;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
-            animation-delay: 1s;
         }
 
         h2 {
             text-align: center;
             margin: 25px 0 10px;
             font-size: 1.8em;
-            opacity: 0;
-            animation: slideInUp 1.5s forwards;
         }
 
         nav {
             display: flex;
             justify-content: center;
             margin: 20px 0;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
-            animation-delay: 1.2s;
         }
 
         nav .icon {
@@ -68,13 +57,12 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, background 0.3s;
         }
 
         nav .icon:hover {
             transform: scale(1.1);
             background: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
 
         nav .icon p {
@@ -86,14 +74,12 @@
             padding: 20px;
             display: none;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transition: opacity 0.5s ease-in-out;
         }
 
         section.active {
             display: block;
             opacity: 1;
-            transform: translateY(0);
         }
 
         section h3 {
@@ -105,7 +91,6 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            gap: 10px;
         }
 
         .portfolio-item {
@@ -116,7 +101,6 @@
             overflow: hidden;
             border-radius: 10px;
             cursor: pointer;
-            animation: zoomIn 1s;
         }
 
         .portfolio-item img {
@@ -128,7 +112,7 @@
         }
 
         .portfolio-item:hover img {
-            transform: scale(1.1) rotate(1deg);
+            transform: scale(1.1);
         }
 
         .portfolio-item .caption {
@@ -152,9 +136,6 @@
             background-color: black;
             text-align: center;
             padding: 20px 0;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
-            animation-delay: 1.5s;
         }
 
         .contact-info {
@@ -194,35 +175,99 @@
                 font-size: 0.9em;
             }
         }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes fadeInDown {
-            0% { opacity: 0; transform: translateY(-20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes bounceIn {
-            0% { transform: scale(0.5); opacity: 0; }
-            60% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes slideInUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes zoomIn {
-            0% { transform: scale(0.5); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
     </style>
 </head>
 <body>
-    <!-- نفس محتوى الصفحة هنا -->
+    <header>
+        <h1>Moaz Zied - مصمم جرافيك</h1>
+        <img src="Logo.jpg" alt="Moaz Zied">
+        <p>مصمم جرافيك متخصص في تصميم الهويات البصرية، تصميمات الليزر، وتصميمات السوشيال ميديا. أسعى لتحويل الأفكار إلى واقع بصري فريد. أجيد العمل على برامج التصميم (Photoshop, Illustrator, Corel Draw).</p>
+    </header>
+
+    <h2>أعمالي السابقة</h2>
+
+    <nav>
+        <div class="icon" onclick="toggleSection('laser')"><p>تصميمات ليزر</p></div>
+        <div class="icon" onclick="toggleSection('social')"><p>تصميمات سوشيال</p></div>
+        <div class="icon" onclick="toggleSection('logos')"><p>تصميم شعارات</p></div>
+        <div class="icon" onclick="toggleSection('print')"><p>طباعة ودعاية</p></div>
+    </nav>
+
+    <section id="laser">
+        <h3>تصميمات ليزر</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="laser1.jpg" alt="تصميم ليزر 1">
+                <div class="caption">تصميم ليزر 1</div>
+            </div>
+            <div class="portfolio-item">
+                <img src="laser2.jpg" alt="تصميم ليزر 2">
+                <div class="caption">تصميم ليزر 2</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="social">
+        <h3>تصميمات سوشيال</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="social1.jpg" alt="تصميم سوشيال 1">
+                <div class="caption">تصميم سوشيال 1</div>
+            </div>
+            <div class="portfolio-item">
+                <img src="social2.jpg" alt="تصميم سوشيال 2">
+                <div class="caption">تصميم سوشيال 2</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="logos">
+        <h3>تصميم شعارات</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="logo1.jpg" alt="تصميم شعار 1">
+                <div class="caption">تصميم شعار 1</div>
+            </div>
+            <div class="portfolio-item">
+                <img src="logo2.jpg" alt="تصميم شعار 2">
+                <div class="caption">تصميم شعار 2</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="print">
+        <h3>طباعة ودعاية</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="print1.jpg" alt="تصميم طباعة 1">
+                <div class="caption">تصميم طباعة 1</div>
+            </div>
+            <div class="portfolio-item">
+                <img src="print2.jpg" alt="تصميم طباعة 2">
+                <div class="caption">تصميم طباعة 2</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="contact-info">
+            <a href="https://wa.me/201025187974" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp">
+            </a>
+            <a href="https://www.linkedin.com/in/moaz-zied-b31110338" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleSection(sectionId) {
+            const sections = document.querySelectorAll("section");
+            sections.forEach(section => {
+                section.classList.remove("active");
+                if (section.id === sectionId) section.classList.add("active");
+            });
+        }
+    </script>
 </body>
 </html>
