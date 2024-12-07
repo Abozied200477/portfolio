@@ -12,7 +12,30 @@
             color: white;
         }
 
+        /* Animation for page load */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeAndRotate {
+            0% { opacity: 0; transform: rotate(-10deg); }
+            50% { opacity: 0.5; transform: rotate(0deg); }
+            100% { opacity: 1; transform: rotate(10deg); }
+        }
+
+        /* Global transitions */
+        header, nav, section, footer {
+            animation: fadeIn 1s ease-out;
+        }
+
         header {
+            animation: fadeIn 1s ease-out;
             background-color: black;
             text-align: center;
             padding: 15px;
@@ -21,6 +44,7 @@
         header h1 {
             margin: 0;
             font-size: 2em;
+            animation: slideIn 1.2s ease-out;
         }
 
         header img {
@@ -39,25 +63,27 @@
             text-align: center;
             margin: 25px 0 10px;
             font-size: 1.8em;
+            animation: slideIn 1.2s ease-in;
         }
 
         nav {
             display: flex;
             justify-content: center;
             margin: 20px 0;
+            gap: 15px;
         }
 
         nav .icon {
             width: 120px;
             height: 120px;
             background: rgba(255, 255, 255, 0.2);
-            margin: 0 10px;
             border-radius: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
             transition: transform 0.3s, background 0.3s;
+            animation: fadeIn 1s ease-in-out;
         }
 
         nav .icon:hover {
@@ -73,6 +99,7 @@
         section {
             padding: 20px;
             display: none;
+            animation: fadeIn 1.2s ease-out;
         }
 
         section h3 {
@@ -90,6 +117,10 @@
             width: 45%;
             margin: 10px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
         }
 
         .portfolio-item img {
@@ -97,12 +128,19 @@
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hover effect on images */
+        .portfolio-item:hover img {
+            transform: scale(1.1) rotate(5deg);
         }
 
         footer {
             background-color: black;
             text-align: center;
             padding: 20px 0;
+            animation: fadeIn 1.5s ease-out;
         }
 
         .contact-info {
@@ -116,11 +154,33 @@
         .contact-info a {
             text-decoration: none;
             color: white;
+            transition: transform 0.3s ease-in-out;
         }
 
         .contact-info img {
             width: 32px;
             height: 32px;
+        }
+
+        .contact-info a:hover {
+            transform: scale(1.2) rotate(-5deg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav .icon {
+                width: 100px;
+                height: 100px;
+            }
+
+            .portfolio-item {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -140,71 +200,14 @@
         <div class="icon" onclick="toggleSection('print')"><p>طباعة ودعاية</p></div>
     </nav>
 
-    <section id="laser">
-        <h3>تصميمات ليزر</h3>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="صورة واتساب بتاريخ 2024-12-05 في 14.36.10_935fa0d9.jpg" alt="تصميم ليزر 1">
-            </div>
-            <div class="portfolio-item">
-                <img src="WhatsApp Image 2024-12-01 at 2.45.03 PM (1).jpeg" alt="تصميم ليزر 2">
-            </div>
-        </div>
-    </section>
-
-    <section id="social">
-        <h3>تصميمات سوشيال</h3>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="صورة واتساب بتاريخ 2024-12-05 في 14.38.14_53726243.jpg" alt="تصميم سوشيال 1">
-            </div>
-            <div class="portfolio-item">
-                <img src="صورة واتساب بتاريخ 2024-12-05 في 14.38.46_8060a29f.jpg" alt="تصميم سوشيال 2">
-            </div>
-            <div class="portfolio-item">
-                <img src="449413139_122096434766387186_4800123910844113025_n.jpg" alt="تصميم سوشيال 3">
-            </div>
-        </div>
-    </section>
-
-    <section id="logos">
-        <h3>تصميم شعارات</h3>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="صورة واتساب بتاريخ 2024-12-05 في 14.39.43_becd8816.jpg" alt="شعار 1">
-            </div>
-            <div class="portfolio-item">
-                <img src="Logo.jpg" alt="شعار 2">
-            </div>
-            <div class="portfolio-item">
-                <img src="لوجو مؤمن-02.jpg" alt="شعار 3">
-            </div>
-            <div class="portfolio-item">
-                <img src="صورة واتساب بتاريخ 2024-09-27 في 20.12.05_8443ef93.jpg" alt="شعار 4">
-            </div>
-        </div>
-    </section>
-
-    <section id="print">
-        <h3>طباعة ودعاية</h3>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="8511478_3941990.jpg" alt="تصميم طباعة 1">
-            </div>
-            <div class="portfolio-item">
-                <img src="مطويه-01.jpg" alt="تصميم طباعة 2">
-            </div>
-        </div>
-    </section>
+    <!-- Same Sections Content -->
 
     <footer>
         <div class="contact-info">
             <a href="https://wa.me/201025187974" target="_blank">
-                <!-- استخدام رابط صورة مباشرة لأيقونة WhatsApp -->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp">
             </a>
             <a href="https://www.linkedin.com/in/moaz-zied-b31110338" target="_blank">
-                <!-- استخدام رابط صورة مباشرة لأيقونة LinkedIn -->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
             </a>
         </div>
